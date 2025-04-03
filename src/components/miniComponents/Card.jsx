@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from "react-router-dom";
 import data from 'assets/data/cards'
 import dishIcon from 'assets/images/Dish icon.svg'
 import 'assets/css-anim/style.css';
@@ -22,9 +23,9 @@ const Card = () => {
                         </p>
                         <div className='flex w-fit gap-5 anim'>
                             <button className='w-fit font-karla text-[16px] font-semibold'>
-                                Order a delivery 
+                                <Link to="/booking">Order a delivery </Link> 
                             </button>
-                             <img src={dishIcon} alt="" />
+                             <img src={dishIcon} alt="#" />
                         </div>
                     </div>
                 </div>  

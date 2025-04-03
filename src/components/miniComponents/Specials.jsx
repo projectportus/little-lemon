@@ -1,5 +1,5 @@
 import React from 'react'
-import Card from './miniComponents/Card'
+import Card from './Card'
 const Specials = () => {
   return (
   <div className="w-full h-screen bg-[#EDEFEE] p-10 flex justify-center">
