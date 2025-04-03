@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from "react";   
 const BookingComp = () => {
+
     const [formData, setFormData] = useState({
         firstName: "",
         lastName: "",
@@ -19,6 +20,7 @@ const BookingComp = () => {
         console.log("Данные формы:", formData);
         alert("Бронирование создано!");
       };
+
   return (
     <div className='w-full h-[150vh] flex flex-col justify-center items-center gap-5'>
       <h1 className='text-[64px] font-markazi'>
@@ -26,58 +28,71 @@ const BookingComp = () => {
       </h1>
       <div className='w-[500px] h-[674px] rounded-[20px]'>
         <div className="mt-10 p-6 bg-white shadow-lg rounded-lg">
-            <h2 className="text-xl font-semibold mb-4">Бронирование</h2>
-            <form onSubmit={handleSubmit} className="space-y-4">
-                <div>
-                <label className="block font-medium">Имя *</label>
-                <input
-                    type="text"
-                    name="firstName"
-                    value={formData.firstName}
-                    onChange={handleChange}
-                    required
-                    className="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500"
-                />
+            <form onSubmit={handleSubmit} className="space-y-4 text-[26px]">
+                <div className='flex justify-between'>
+                    <div>
+                    <label className="block font-medium font-markazi">First Name  <span className="text-red-500">*</span></label>
+                    <input
+                        type="text"
+                        name="firstName"
+                        value={formData.firstName}
+                        onChange={handleChange}
+                        required
+                        className="p-3 border border-gray-300 
+                        font-karla text-[16px]
+                        rounded-[5px]
+                        outline-none"
+                    />
+                    </div>
+
+                    <div>
+                    <label className="block font-medium font-markazi">Last Name  <span className="text-red-500">*</span></label>
+                    <input
+                        type="text"
+                        name="lastName"
+                        value={formData.lastName}
+                        onChange={handleChange}
+                        required
+                        className="p-3 border border-gray-300
+                        font-karla text-[16px]
+                        rounded-[5px]
+                        outline-none"
+                    />
+                    </div>
                 </div>
 
                 <div>
-                <label className="block font-medium">Фамилия *</label>
-                <input
-                    type="text"
-                    name="lastName"
-                    value={formData.lastName}
-                    onChange={handleChange}
-                    required
-                    className="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500"
-                />
-                </div>
-
-                <div>
-                <label className="block font-medium">Дата *</label>
+                <label className="block font-medium font-markazi">Choose Date  <span className="text-red-500">*</span></label>
                 <input
                     type="date"
                     name="date"
                     value={formData.date}
                     onChange={handleChange}
                     required
-                    className="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500"
+                    className="w-full p-2 border border-gray-300
+                    font-karla text-[16px]
+                    rounded-[5px]
+                    outline-none"
                 />
                 </div>
 
                 <div>
-                <label className="block font-medium">Время *</label>
+                <label className="block font-medium font-markazi">Choose Time  <span className="text-red-500">*</span></label>
                 <input
                     type="time"
                     name="time"
                     value={formData.time}
                     onChange={handleChange}
                     required
-                    className="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500"
+                    className="w-full p-2 border border-gray-300
+                    font-karla text-[16px]
+                    rounded-[5px]
+                    outline-none"
                 />
                 </div>
 
                 <div>
-                <label className="block font-medium">Количество гостей *</label>
+                <label className="block font-medium font-markazi">Number of Guests  <span className="text-red-500">*</span></label>
                 <input
                     type="number"
                     name="guests"
@@ -85,31 +100,36 @@ const BookingComp = () => {
                     value={formData.guests}
                     onChange={handleChange}
                     required
-                    className="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500"
+                    className="w-full p-2 border border-gray-300
+                    font-karla text-[16px]
+                    outline-none
+                    rounded-[5px]"
                 />
                 </div>
 
                 <div>
-                <label className="block font-medium">Повод</label>
+                <label className="block font-medium font-markazi">Occasion</label>
                 <select
                     name="occasion"
                     value={formData.occasion}
                     onChange={handleChange}
-                    className="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500"
+                    className="w-full p-2 border border-gray-300 rounded 
+                    font-karla text-[16px]  appearance-none
+                    outline-none"
                 >
-                    <option value="">Выберите...</option>
-                    <option value="birthday">День рождения</option>
-                    <option value="anniversary">Годовщина</option>
-                    <option value="date">Романтический ужин</option>
-                    <option value="other">Другое</option>
+                    <option value="">None</option>
+                    <option value="birthday">Birthday</option>
+                    <option value="anniversary">Anniversary</option>
+                    <option value="date">Date</option>
+                    <option value="other">Other</option>
                 </select>
                 </div>
 
                 <button
-                type="submit"
-                className="w-full bg-yellow-400 text-black font-semibold py-2 rounded hover:bg-yellow-500 transition"
-                >
-                Создать бронирование
+                    type="submit"
+                    className="w-full bg-yellow-400 text-black text-[20px] font-semibold py-2 rounded-[20px] border-1  hover:bg-yellow-500 transition"
+                    >
+                    Create Reservation
                 </button>
             </form>
             </div>
