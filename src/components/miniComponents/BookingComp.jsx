@@ -1,12 +1,13 @@
-import React from 'react'
+import React, { use } from 'react'
 import { useState } from "react";   
 const BookingComp = () => {
+    const [data, setData] = useState(null);
 
     const [formData, setFormData] = useState({
         firstName: "",
         lastName: "",
         date: "",
-        time: "",
+      time: "",
         guests: 1,
         occasion: "",
       });
@@ -17,8 +18,15 @@ const BookingComp = () => {
     
       const handleSubmit = (e) => {
         e.preventDefault();
-        console.log("Данные формы:", formData);
-        alert("Бронирование создано!");
+        setData(formData);
+        setFormData({
+          firstName: "",
+          lastName: "",
+          date: "",
+        time: "",
+          guests: 1,
+          occasion: "",
+        })
       };
 
   return (
@@ -26,8 +34,8 @@ const BookingComp = () => {
       <h1 className='text-[64px] font-markazi'>
         Book Your Reservation
       </h1>
-      <div className='w-[500px] h-[674px] rounded-[20px]'>
-        <div className="mt-10 p-6 bg-white shadow-lg rounded-lg">
+      <div className='w-[80vw] flex items-center justify-around h-[674px] rounded-[20px]'>
+        <div className="mt-10 w-[480px] h-[600px] p-6 bg-[#EDEFEE] border-[#49SE57] shadow-lg rounded-lg">
             <form onSubmit={handleSubmit} className="space-y-4 text-[26px]">
                 <div className='flex justify-between'>
                     <div>
@@ -97,6 +105,7 @@ const BookingComp = () => {
                     type="number"
                     name="guests"
                     min="1"
+                    max="20"
                     value={formData.guests}
                     onChange={handleChange}
                     required
@@ -127,12 +136,26 @@ const BookingComp = () => {
 
                 <button
                     type="submit"
-                    className="w-full bg-yellow-400 text-black text-[20px] font-semibold py-2 rounded-[20px] border-1  hover:bg-yellow-500 transition"
+                    className="w-full bg-[#F4CE14] text-black text-[20px] font-semibold py-2 rounded-[20px] border-1  hover:bg-yellow-500 transition"
                     >
                     Create Reservation
                 </button>
             </form>
-            </div>
+        </div>
+        <div className="mt-10 w-[480px] h-[600px] p-6 bg-[#EDEFEE] border-[#49SE57] flex flex-col items-center shadow-lg rounded-lg">
+            <h1 className='font-markazi text-[40px]'>Bookings</h1>
+            {data ? (
+                <div className="bg-white font-karla w-[90%] h-[40%] flex flex-col items-center justify-around rounded-xl">
+                <div>Appointed as: {data.firstName} {data.lastName}</div>
+                <p>On {new Date(data.date).toLocaleDateString()}, at {data.time}</p>
+                <p>Booked for {data.guests} {data.guests > 1 ? "guests" : "guest"}.</p>
+                <p>The occasion is a {data.occasion} meeting.</p>
+                <button onClick={() => {setData(null)}} className='bg-[#495E57] p-2 rounded-[10px] text-white'>Delete</button>
+                </div>
+            ): (
+              <p className='font-karla text-[30px] mt-10'>No bookings yet.</p>
+            )}
+        </div>
       </div>
     </div>
   )

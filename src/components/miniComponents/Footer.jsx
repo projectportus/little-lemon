@@ -1,5 +1,6 @@
 import React from 'react'
 import photo from 'assets/images/restaurant chef B.jpg'
+import { Link } from 'react-router-dom';
 import 'assets/css-anim/style.css';
 const Footer = () => {
     return (
@@ -16,7 +17,7 @@ const Footer = () => {
           <div>
             <h3 className="font-semibold text-lg">Little Lemon</h3>
             <ul className="mt-3 space-y-2">
-              <li><a href="#" className="anim">Home</a></li>
+              <li><Link to="/" className="anim">Home</Link></li>
               <li><a href="#" className="anim">About</a></li>
               <li><a href="#" className="anim">Menu</a></li>
               <li><a href="#" className="anim">Booking</a></li>

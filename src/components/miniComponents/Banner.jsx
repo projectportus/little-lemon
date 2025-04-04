@@ -1,5 +1,6 @@
 import React from 'react'
 import 'assets/css-anim/style.css';
+import { Link } from 'react-router-dom';
 import food from 'assets/images/restauranfood.jpg'
 const Banner = () => {
   return (
@@ -17,7 +18,7 @@ const Banner = () => {
               a modern twist.
         </p>
         <button className='w-[60%] bg-[#F4CE14] font-semibold font-karla text-[18px] p-3 rounded-[10px]'>
-            Reserve A Table
+          <Link to="/booking"> Reserve A Table</Link>
         </button>
       </div>
 
